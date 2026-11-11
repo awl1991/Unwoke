@@ -91,7 +91,7 @@ export function Videos({ initialFeed, mode = "featured" }: { initialFeed: VideoF
         <div className="feature-details">
           <div className="feature-meta"><span>LATEST VIDEOS</span><span>YOUTUBE</span></div>
           <h2>Watch the latest on UnwokeThoughts.</h2>
-          <p>{feed.status === "not-configured" ? "Play the channel uploads above. Connect the YouTube API key to automatically feature the exact newest public upload with its title, description, and views." : "The YouTube data feed is temporarily unavailable. Play videos in the channel player above or visit YouTube directly."}</p>
+          {/* <p>{feed.status === "not-configured" ? "Play the channel uploads above. Connect the YouTube API key to automatically feature the exact newest public upload with its title, description, and views." : "The YouTube data feed is temporarily unavailable. Play videos in the channel player above or visit YouTube directly."}</p> */}
           <a className="feature-watch" href={siteConfig.youtube} target="_blank" rel="noopener noreferrer">Visit the channel <ArrowUpRight size={16}/></a>
         </div>
       </div>}
