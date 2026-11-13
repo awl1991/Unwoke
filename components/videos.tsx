@@ -94,10 +94,10 @@ export function Videos({ initialFeed, mode = "featured" }: { initialFeed: VideoF
         <div className="feature-details">
           <div className="feature-meta"><span>NEWEST UPLOAD</span><span>{dateLabel(latest.publishedAt)}</span></div>
           <h2>{latest.title}</h2>
+          <VideoStats video={latest} className="feature-stats" />
           {latest.description && <p>{latest.description.replace(/https?:\/\/\S+/g, "").trim().slice(0, 170)}</p>}
           <div className="feature-actions">
             <a className="feature-watch" href={latest.url} target="_blank" rel="noopener noreferrer">Watch on YouTube <ArrowUpRight size={16}/></a>
-            <VideoStats video={latest} className="feature-stats" />
           </div>
         </div>
       </> : <div className="feature-fallback">
