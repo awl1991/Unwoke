@@ -12,6 +12,8 @@ export type YouTubeVideo = {
   thumbnail: string;
   duration: string;
   viewCount: number | null;
+  likeCount: number | null;
+  commentCount: number | null;
   embeddable: boolean;
   url: string;
 };
@@ -37,7 +39,7 @@ type VideoResponse = {
       thumbnails?: Record<string, { url?: string }>;
     };
     contentDetails?: { duration?: string };
-    statistics?: { viewCount?: string };
+    statistics?: { viewCount?: string; likeCount?: string; commentCount?: string };
     status?: { privacyStatus?: string; embeddable?: boolean };
   }[];
 };
@@ -54,6 +56,13 @@ async function youtubeRequest<T>(resource: string, params: Record<string, string
   });
   if (!response.ok) throw new Error(`YouTube ${resource} request failed (${response.status})`);
   return (await response.json()) as T;
+}
+
+/** YouTube returns counts as strings; hidden counts are omitted. */
+function toCount(value?: string): number | null {
+  if (value == null) return null;
+  const n = Number(value);
+  return Number.isFinite(n) ? n : null;
 }
 
 /** Convert an ISO 8601 YouTube duration (PT12M34S) to 12:34. */
@@ -113,6 +122,8 @@ export async function getYoutubeVideos(): Promise<VideoFeed> {
           thumbnail,
           duration: displayDuration(item.contentDetails?.duration ?? ""),
           viewCount: item.statistics?.viewCount != null && Number.isFinite(parsedCount) ? parsedCount : null,
+          likeCount: toCount(item.statistics?.likeCount),
+          commentCount: toCount(item.statistics?.commentCount),
           embeddable: item.status?.embeddable !== false,
           url: `https://www.youtube.com/watch?v=${encodeURIComponent(item.id)}`,
         };

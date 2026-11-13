@@ -202,3 +202,11 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--red);outline-offset
 .social-count{display:block;margin:2px 0 8px;font-size:9px;font-weight:900;letter-spacing:.15em;color:var(--social-accent)}
 .social-count b{font-family:var(--heading);font-size:30px;font-weight:400;letter-spacing:.01em;color:var(--ink);margin-right:4px;vertical-align:-3px}
 @media(max-width:650px){.social-count b{font-size:24px}}
+
+/* Video stats: views, likes, comments */
+.video-stats{display:flex;align-items:center;flex-wrap:wrap;gap:14px;color:#aab0ba;font-size:10px;letter-spacing:.06em;white-space:nowrap}
+.video-stats span{display:inline-flex;align-items:center;gap:6px}
+.video-stats svg{color:var(--red);flex:none}
+.video-stats b{color:#e9ebee;font-weight:700}
+.mini-stats{margin:0 21px 14px}
+.feature-stats{gap:18px;font-size:11px}

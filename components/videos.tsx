@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight, Clock3, Eye, Play } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Clock3, Eye, MessageCircle, Play, ThumbsUp } from "lucide-react";
 import { siteConfig } from "@/lib/config";
 import type { VideoFeed, YouTubeVideo } from "@/lib/youtube";
 import { SectionEyebrow } from "@/components/section-eyebrow";
@@ -10,10 +10,24 @@ import { SectionEyebrow } from "@/components/section-eyebrow";
 function dateLabel(value: string) {
   return new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" }).format(new Date(value));
 }
-function viewLabel(n: number) {
-  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(n >= 10_000_000 ? 0 : 1).replace(/\.0$/, "")}M views`;
-  if (n >= 1_000) return `${(n / 1_000).toFixed(n >= 10_000 ? 0 : 1).replace(/\.0$/, "")}K views`;
-  return `${n.toLocaleString("en-US")} views`;
+
+function compactCount(n: number) {
+  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(n >= 10_000_000 ? 0 : 1).replace(/\.0$/, "")}M`;
+  if (n >= 1_000) return `${(n / 1_000).toFixed(n >= 10_000 ? 0 : 1).replace(/\.0$/, "")}K`;
+  return n.toLocaleString("en-US");
+}
+
+/** Views, likes, and comments; a count the creator hid on YouTube is left out. */
+function VideoStats({ video, className = "" }: { video: YouTubeVideo; className?: string }) {
+  const items = [
+    { key: "views", icon: <Eye size={13}/>, value: video.viewCount, label: "views" },
+    { key: "likes", icon: <ThumbsUp size={13}/>, value: video.likeCount, label: "likes" },
+    { key: "comments", icon: <MessageCircle size={13}/>, value: video.commentCount, label: "comments" },
+  ].filter((item) => item.value !== null && item.value !== undefined);
+  if (!items.length) return null;
+  return <div className={`video-stats ${className}`}>
+    {items.map((item) => <span key={item.key} title={`${item.value!.toLocaleString("en-US")} ${item.label}`} aria-label={`${item.value!.toLocaleString("en-US")} ${item.label}`}>{item.icon}<b>{compactCount(item.value!)}</b></span>)}
+  </div>;
 }
 
 function VideoThumbnail({ video, priority = false, className = "" }: { video: YouTubeVideo; priority?: boolean; className?: string }) {
@@ -83,7 +97,7 @@ export function Videos({ initialFeed, mode = "featured" }: { initialFeed: VideoF
           {latest.description && <p>{latest.description.replace(/https?:\/\/\S+/g, "").trim().slice(0, 170)}</p>}
           <div className="feature-actions">
             <a className="feature-watch" href={latest.url} target="_blank" rel="noopener noreferrer">Watch on YouTube <ArrowUpRight size={16}/></a>
-            {latest.viewCount !== null && <span className="feature-views"><Eye size={14}/>{viewLabel(latest.viewCount)}</span>}
+            <VideoStats video={latest} className="feature-stats" />
           </div>
         </div>
       </> : <div className="feature-fallback">
@@ -107,6 +121,7 @@ export function Videos({ initialFeed, mode = "featured" }: { initialFeed: VideoF
           <div className="mini-thumb-wrap"><VideoThumbnail video={video} /><span className="mini-play"><Play fill="currentColor" size={16}/></span></div>
           <div className="mini-number">0{index + 2} <span>/</span> VIDEO</div>
           <h3>{video.title}</h3>
+          <VideoStats video={video} className="mini-stats" />
           <div className="mini-meta"><span>{dateLabel(video.publishedAt)}</span><ArrowUpRight size={17}/></div>
         </a>)}</div> : <div className="video-empty-state">
           <span className="empty-bars" aria-hidden="true"><i/><i/><i/><i/></span>
