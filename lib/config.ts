@@ -15,12 +15,12 @@ export const siteConfig = {
    */
   audienceFallback: {
     youtube: null,
-    x: null,
+    x: 2730,
     facebook: 145000,
     instagram: null,
     tiktok: null,
-    rumble: null,
-    truth: null,
+    rumble: 392,
+    truth: 79,
   },
   socials: [
     {
