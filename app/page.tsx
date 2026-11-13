@@ -7,12 +7,13 @@ import { Videos } from "@/components/videos";
 import { ContactForm } from "@/components/contact-form";
 import { siteConfig } from "@/lib/config";
 import { getYoutubeVideos } from "@/lib/youtube";
+import { getAudienceStats } from "@/lib/social-stats";
 import type { CSSProperties } from "react";
 
 export const revalidate = 900;
 
 export default async function HomePage() {
-  const videos = await getYoutubeVideos();
+  const [videos, audience] = await Promise.all([getYoutubeVideos(), getAudienceStats()]);
   const canonical = siteConfig.url;
   const structuredData = {
     "@context": "https://schema.org",
@@ -59,10 +60,10 @@ export default async function HomePage() {
             <p>Different platforms. Same independent voice. Follow along wherever you like to watch, read, and join the conversation.</p>
           </div>
           <div className="social-grid">
-            {siteConfig.socials.map((social) => <a href={social.url} key={social.id} target="_blank" rel="noopener noreferrer" className={`social-card social-card--${social.id}`} style={{ "--social-accent": social.color } as CSSProperties} aria-label={`Open UnwokeThoughts on ${social.name} (opens in a new tab)`}>
+            {siteConfig.socials.map((social) => { const stat = audience.platforms.find((p) => p.id === social.id); return <a href={social.url} key={social.id} target="_blank" rel="noopener noreferrer" className={`social-card social-card--${social.id}`} style={{ "--social-accent": social.color } as CSSProperties} aria-label={`Open UnwokeThoughts on ${social.name} (opens in a new tab)`}>
               <div className="social-card-top"><span className="social-icon"><BrandIcon name={social.id} size={26}/></span><ArrowUpRight className="social-arrow" size={19}/></div>
-              <div className="social-card-bottom"><span className="social-number">{social.number} / PLATFORM</span><h3>{social.name}</h3><p>{social.description}</p><span className="social-handle">{social.handle}</span></div>
-            </a>)}
+              <div className="social-card-bottom"><span className="social-number">{social.number} / PLATFORM</span><h3>{social.name}</h3><p>{social.description}</p>{stat?.count != null && <span className="social-count"><b title={stat.count.toLocaleString("en-US")}>{new Intl.NumberFormat("en-US", { notation: "compact", maximumFractionDigits: 1 }).format(stat.count)}</b> {stat.label.toUpperCase()}</span>}<span className="social-handle">{social.handle}</span></div>
+            </a>; })}
             <a className="social-card social-card--cta" href={siteConfig.youtube} target="_blank" rel="noopener noreferrer"><span className="social-cta-symbol">✳</span><span className="social-cta-middle">DON'T MISS<br/>THE NEXT<br/>STORY.</span><span className="social-cta-foot">SUBSCRIBE ON YOUTUBE <ArrowUpRight size={17}/></span></a>
           </div>
         </div>

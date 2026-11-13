@@ -9,6 +9,19 @@ export const siteConfig = {
   membership: "https://www.youtube.com/channel/UCEu71gCQHrawoAfjFnU0oJw/join",
   cashApp: "https://cash.app/$awl1991",
   venmo: "https://venmo.com/u/labunski",
+  /**
+   * Backup follower counts, shown when a platform can't be read automatically.
+   * Set a number (e.g. 12500) or null to show a "Follow" card instead.
+   */
+  audienceFallback: {
+    youtube: null,
+    x: null,
+    facebook: 145000,
+    instagram: null,
+    tiktok: null,
+    rumble: null,
+    truth: null,
+  },
   socials: [
     {
       id: "youtube", name: "YouTube", handle: "@unwokethoughts",
