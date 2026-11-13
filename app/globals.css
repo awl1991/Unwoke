@@ -210,3 +210,5 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--red);outline-offset
 .video-stats b{color:#e9ebee;font-weight:700}
 .mini-stats{margin:0 21px 14px}
 .feature-stats{gap:18px;font-size:11px;margin:12px 0 4px}
+.feature-stats + p{margin-top:24px !important}
+.feature-details .feature-stats + p + .feature-actions{margin-top:10px}
