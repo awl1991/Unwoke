@@ -16,7 +16,7 @@ export const siteConfig = {
   audienceFallback: {
     youtube: null,
     x: 2730,
-    facebook: 145000,
+    facebook: null,
     instagram: null,
     tiktok: null,
     rumble: 461,
