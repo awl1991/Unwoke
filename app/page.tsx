@@ -5,6 +5,7 @@ import { BrandIcon } from "@/components/brand-icons";
 import { SectionEyebrow } from "@/components/section-eyebrow";
 import { Videos } from "@/components/videos";
 import { ContactForm } from "@/components/contact-form";
+import { BrandStrip } from "@/components/brand-strip";
 import { siteConfig } from "@/lib/config";
 import { getYoutubeVideos } from "@/lib/youtube";
 import { getAudienceStats } from "@/lib/social-stats";
@@ -93,6 +94,8 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+
+      <BrandStrip />
 
       <section id="contact" className="contact-section section-shell">
         <div className="container">

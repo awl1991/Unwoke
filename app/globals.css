@@ -212,3 +212,22 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--red);outline-offset
 .feature-stats{gap:18px;font-size:11px;margin:12px 0 4px}
 .feature-stats + p{margin-top:24px !important}
 .feature-details .feature-stats + p + .feature-actions{margin-top:10px}
+
+/* Brands we have worked with: slim auto-scrolling logo strip */
+.brand-strip{padding:34px 0 30px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg)}
+.brand-strip-inner{display:flex;align-items:center;gap:40px}
+.brand-strip-label{flex:none;display:flex;align-items:center;gap:9px;margin:0;color:var(--muted);font-size:10px;font-weight:900;letter-spacing:.16em;white-space:nowrap}
+.brand-marquee{flex:1;min-width:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.brand-track{display:flex;width:max-content;animation:brand-scroll 40s linear infinite}
+.brand-marquee:hover .brand-track{animation-play-state:paused}
+.brand-row{display:flex;align-items:center;gap:72px;padding:0 36px;margin:0;list-style:none}
+.brand-row li{display:flex;align-items:center;height:48px}
+.brand-row img{opacity:.42;transition:opacity .25s ease;user-select:none}
+.brand-row a{display:flex;align-items:center;cursor:pointer;border-radius:6px;outline-offset:6px}
+.brand-row img:hover,.brand-row a:focus-visible img{opacity:.95}
+.brand-row a:hover img{opacity:1;transform:translateY(-1px)}
+.brand-row img{transition:opacity .25s ease,transform .25s ease}
+.brand-marquee:focus-within .brand-track{animation-play-state:paused}
+@keyframes brand-scroll{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.brand-track{animation:none}}
+@media (max-width:720px){.brand-strip{padding:24px 0 20px}.brand-strip-inner{flex-direction:column;align-items:flex-start;gap:16px}.brand-strip-label{font-size:9px}.brand-marquee{width:100%}.brand-row{gap:48px;padding:0 24px}.brand-track{animation-duration:30s}}
