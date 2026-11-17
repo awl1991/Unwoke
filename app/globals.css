@@ -234,3 +234,13 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--red);outline-offset
 
 /* Keep decorative asterisks as plain text, not color emoji, on iPhone/Android */
 .small-asterisk,.ticker-content b,.social-cta-symbol,.footer-bottom span{font-variant-emoji:text}
+
+/* Mobile ticker auto-scroll */
+.ticker-dup,.ticker-tail{display:none}
+@keyframes ticker-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(max-width:650px){
+.ticker-track{display:flex;width:max-content;animation:ticker-scroll 28s linear infinite}
+.ticker-track .ticker-content{padding:0 0 0 20px;flex-shrink:0}
+.ticker-dup{display:flex}.ticker-tail{display:inline}
+}
+@media(max-width:650px) and (prefers-reduced-motion:reduce){.ticker-track{animation:none}.ticker-dup{display:none}}

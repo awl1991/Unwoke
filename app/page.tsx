@@ -51,7 +51,7 @@ export default async function HomePage() {
 
       <Videos initialFeed={videos} mode="recent"/>
 
-      <section className="ticker-strip" aria-label="Our focus"><div className="ticker-content"><span>NEWS</span><b>✳︎</b><span>COMMENTARY</span><b>✳︎</b><span>PERSPECTIVE</span><b>✳︎</b><span>CONVERSATION</span><b>✳︎</b><span>UNWOKETHOUGHTS</span></div></section>
+      <section className="ticker-strip" aria-label="Our focus"><div className="ticker-track"><div className="ticker-content"><span>NEWS</span><b>✳︎</b><span>COMMENTARY</span><b>✳︎</b><span>PERSPECTIVE</span><b>✳︎</b><span>CONVERSATION</span><b>✳︎</b><span>UNWOKETHOUGHTS</span><b className="ticker-tail">✳︎</b></div><div className="ticker-content ticker-dup" aria-hidden="true"><span>NEWS</span><b>✳︎</b><span>COMMENTARY</span><b>✳︎</b><span>PERSPECTIVE</span><b>✳︎</b><span>CONVERSATION</span><b>✳︎</b><span>UNWOKETHOUGHTS</span><b className="ticker-tail">✳︎</b></div></div></section>
 
       <section id="connect" className="connect-section section-shell">
         <div className="container">
