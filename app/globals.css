@@ -211,7 +211,7 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--red);outline-offset
 .mini-stats{margin:0 21px 14px}
 .feature-stats{gap:18px;font-size:11px;margin:12px 0 4px}
 .feature-stats + p{margin-top:24px !important}
-.feature-details .feature-stats + p + .feature-actions{margin-top:10px}
+.feature-details .feature-stats + .feature-actions{margin-top:18px}
 
 /* Brands we have worked with: slim auto-scrolling logo strip */
 .brand-strip{padding:34px 0 30px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg)}
