@@ -231,3 +231,6 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--red);outline-offset
 @keyframes brand-scroll{to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.brand-track{animation:none}}
 @media (max-width:720px){.brand-strip{padding:24px 0 20px}.brand-strip-inner{flex-direction:column;align-items:flex-start;gap:16px}.brand-strip-label{font-size:9px}.brand-marquee{width:100%}.brand-row{gap:48px;padding:0 24px}.brand-track{animation-duration:30s}}
+
+/* Keep decorative asterisks as plain text, not color emoji, on iPhone/Android */
+.small-asterisk,.ticker-content b,.social-cta-symbol,.footer-bottom span{font-variant-emoji:text}

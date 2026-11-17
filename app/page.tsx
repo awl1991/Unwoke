@@ -42,7 +42,7 @@ export default async function HomePage() {
               <a className="primary-button" href="#connect">EXPLORE PLATFORMS <ArrowRight size={17}/></a>
               <a className="secondary-button" href="#contact"><Mail size={15}/> CONTACT <ArrowRight size={17}/></a>
             </div>
-            <div className="hero-signoff"><span className="small-asterisk">✳</span><span>YOUR HUB FOR EVERYTHING<br/>UNWOKETHOUGHTS.</span><span className="signoff-rule"/></div>
+            <div className="hero-signoff"><span className="small-asterisk">✳︎</span><span>YOUR HUB FOR EVERYTHING<br/>UNWOKETHOUGHTS.</span><span className="signoff-rule"/></div>
           </div>
           <div className="hero-feature"><Videos initialFeed={videos}/></div>
         </div>
@@ -51,7 +51,7 @@ export default async function HomePage() {
 
       <Videos initialFeed={videos} mode="recent"/>
 
-      <section className="ticker-strip" aria-label="Our focus"><div className="ticker-content"><span>NEWS</span><b>✳</b><span>COMMENTARY</span><b>✳</b><span>PERSPECTIVE</span><b>✳</b><span>CONVERSATION</span><b>✳</b><span>UNWOKETHOUGHTS</span></div></section>
+      <section className="ticker-strip" aria-label="Our focus"><div className="ticker-content"><span>NEWS</span><b>✳︎</b><span>COMMENTARY</span><b>✳︎</b><span>PERSPECTIVE</span><b>✳︎</b><span>CONVERSATION</span><b>✳︎</b><span>UNWOKETHOUGHTS</span></div></section>
 
       <section id="connect" className="connect-section section-shell">
         <div className="container">
@@ -65,7 +65,7 @@ export default async function HomePage() {
               <div className="social-card-top"><span className="social-icon"><BrandIcon name={social.id} size={26}/></span><ArrowUpRight className="social-arrow" size={19}/></div>
               <div className="social-card-bottom"><span className="social-number">{social.number} / PLATFORM</span><h3>{social.name}</h3><p>{social.description}</p>{stat?.count != null && <span className="social-count"><b title={stat.count.toLocaleString("en-US")}>{new Intl.NumberFormat("en-US", { notation: "compact", maximumFractionDigits: 1 }).format(stat.count)}</b> {stat.label.toUpperCase()}</span>}<span className="social-handle">{social.handle}</span></div>
             </a>; })}
-            <a className="social-card social-card--cta" href={siteConfig.youtube} target="_blank" rel="noopener noreferrer"><span className="social-cta-symbol">✳</span><span className="social-cta-middle">DON'T MISS<br/>THE NEXT<br/>STORY.</span><span className="social-cta-foot">SUBSCRIBE ON YOUTUBE <ArrowUpRight size={17}/></span></a>
+            <a className="social-card social-card--cta" href={siteConfig.youtube} target="_blank" rel="noopener noreferrer"><span className="social-cta-symbol">✳︎</span><span className="social-cta-middle">DON'T MISS<br/>THE NEXT<br/>STORY.</span><span className="social-cta-foot">SUBSCRIBE ON YOUTUBE <ArrowUpRight size={17}/></span></a>
           </div>
         </div>
       </section>
@@ -106,7 +106,7 @@ export default async function HomePage() {
     </main>
     <footer className="site-footer"><div className="container">
       <div className="footer-top"><div><BrandMark compact/><p>INDEPENDENT NEWS.<br/>UNFILTERED COMMENTARY.</p></div><div className="footer-links"><div><span>EXPLORE</span><a href="#top">Home</a><a href="#watch">Videos</a><a href="#connect">Socials</a></div><div><span>MORE</span><a href="#support">Support</a><a href="#contact">Business</a><a href={siteConfig.youtube} target="_blank" rel="noopener noreferrer">YouTube <ArrowUpRight size={12}/></a></div></div></div>
-      <div className="footer-bottom"><span>© {new Date().getFullYear()} UNWOKETHOUGHTS. ALL RIGHTS RESERVED.</span><span>INDEPENDENT BY DESIGN. <span className="footer-red-star">✳</span></span><a href="https://unwokethoughts.com" rel="canonical">UNWOKETHOUGHTS.COM <ArrowUpRight size={12}/></a></div>
+      <div className="footer-bottom"><span>© {new Date().getFullYear()} UNWOKETHOUGHTS. ALL RIGHTS RESERVED.</span><span>INDEPENDENT BY DESIGN. <span className="footer-red-star">✳︎</span></span><a href="https://unwokethoughts.com" rel="canonical">UNWOKETHOUGHTS.COM <ArrowUpRight size={12}/></a></div>
     </div></footer>
   </div>;
 }
