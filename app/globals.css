@@ -245,3 +245,8 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--red);outline-offset
 }
 @media(max-width:1280px) and (prefers-reduced-motion:reduce){.ticker-track{animation:none}.ticker-dup{display:none}}
 @media(min-width:651px) and (max-width:1280px){.ticker-track .ticker-content{gap:44px;padding-left:44px}}
+
+/* Consistent hero buttons */
+.btn-label{display:inline-flex;align-items:center;gap:10px}
+.secondary-button>svg:last-child{margin-left:7px}
+@media(max-width:650px){.primary-button,.secondary-button{justify-content:space-between;min-height:52px;padding:0 18px;font-size:11px}.primary-button>svg:last-child,.secondary-button>svg:last-child{margin-left:0}}
