@@ -39,8 +39,8 @@ export default async function HomePage() {
             <h1 id="hero-title">THE NEWS<span className="hero-period">.</span><br/>THE CONTEXT<span className="hero-period">.</span><br/><span className="hero-outline">THE CONVERSATION.</span></h1>
             <p className="hero-subtitle">Independent news. <strong>Unfiltered commentary.</strong><br/>Breaking down the stories shaping America.</p>
             <div className="hero-cta-row">
-              <a className="primary-button" href="#connect"><span className="btn-label">EXPLORE PLATFORMS</span><ArrowRight size={17}/></a>
-              <a className="secondary-button" href="#contact"><span className="btn-label"><Mail size={15}/>CONTACT</span><ArrowRight size={17}/></a>
+              <a className="primary-button" href="#connect">EXPLORE PLATFORMS <ArrowRight size={17}/></a>
+              <a className="secondary-button" href="#contact"><Mail size={15}/> CONTACT <ArrowRight size={17}/></a>
             </div>
             <div className="hero-signoff"><span className="small-asterisk">✳︎</span><span>YOUR HUB FOR EVERYTHING<br/>UNWOKETHOUGHTS.</span><span className="signoff-rule"/></div>
           </div>
