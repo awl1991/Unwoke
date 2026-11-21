@@ -245,3 +245,5 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--red);outline-offset
 }
 @media(max-width:1280px) and (prefers-reduced-motion:reduce){.ticker-track{animation:none}.ticker-dup{display:none}}
 @media(min-width:651px) and (max-width:1280px){.ticker-track .ticker-content{gap:44px;padding-left:44px}}
+
+.brand-symbol img{width:100%;height:100%;object-fit:contain}

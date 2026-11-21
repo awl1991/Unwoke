@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary_large_image", title: "UnwokeThoughts", description: "Independent news. Unfiltered commentary.", images: ["/og-image.png"] },
   robots: { index: true, follow: true },
-  icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
+  icons: { icon: [{ url: "/favicon.ico", sizes: "any" }, { url: "/icon.png", type: "image/png", sizes: "512x512" }], shortcut: "/favicon.ico", apple: "/apple-icon.png" },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
