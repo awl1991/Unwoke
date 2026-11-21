@@ -8,7 +8,7 @@ button{font:inherit;cursor:pointer}
 button,a{-webkit-tap-highlight-color:transparent}
 button:focus-visible,a:focus-visible{outline:2px solid var(--red);outline-offset:4px}
 .container{width:calc(100% - 100px);max-width:1360px;margin-inline:auto}
-.site-root{overflow:hidden}
+.site-root{overflow-x:clip}
 .announcement-bar{height:30px;display:flex;align-items:center;gap:12px;background:#e44b52;color:#130c0e;padding:0 max(50px,calc((100% - 1360px)/2));font-size:9px;font-weight:900;letter-spacing:.12em;white-space:nowrap}
 .announcement-square{width:6px;height:6px;background:#131317;transform:rotate(45deg)}
 .announcement-divider{opacity:.5}
