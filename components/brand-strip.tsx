@@ -13,7 +13,7 @@ const brands = [
 export function BrandStrip() {
   // Repeat the set so the loop is seamless on wide screens.
   const row = [...brands, ...brands, ...brands];
-  return <section className="brand-strip" aria-label="Brands we've worked with">
+  return <section id="contact" className="brand-strip" aria-label="Brands we've worked with">
     <div className="container brand-strip-inner">
       <p className="brand-strip-label"><span className="red-dot"/>BRANDS WE&apos;VE WORKED WITH</p>
       <div className="brand-marquee">

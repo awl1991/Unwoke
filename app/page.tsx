@@ -97,7 +97,7 @@ export default async function HomePage() {
 
       <BrandStrip />
 
-      <section id="contact" className="contact-section section-shell">
+      <section id="contact-form" className="contact-section section-shell">
         <div className="container">
           <SectionEyebrow index="04">BUSINESS & PARTNERSHIPS</SectionEyebrow>
           <div className="contact-layout contact-layout--form"><div><span className="contact-prefix"><ShieldCheck size={16}/> OPEN FOR BUSINESS INQUIRIES</span><h2>LET'S MAKE<br/><em>SOMETHING HAPPEN.</em></h2><p>Partnerships, sponsorships, advertising opportunities, and collaborations. Reach out to start a conversation.</p><p className="contact-form-email">Prefer email? <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></p></div><ContactForm/></div>
