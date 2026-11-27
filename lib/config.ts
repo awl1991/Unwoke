@@ -19,7 +19,7 @@ export const siteConfig = {
     facebook: null,
     instagram: null,
     tiktok: null,
-    rumble: 514,
+    rumble: 530,
     truth: 80,
   },
   socials: [
